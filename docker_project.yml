@@ -3,7 +3,7 @@
   become: true
   vars:
     aws_region: us-east-1
-    ecr_registry: ecr_registry: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com
+    ecr_registry: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com
   tasks:
     - name: update all packages
       ansible.builtin.yum:
@@ -85,7 +85,7 @@
   vars:
     container_name: oliver_postgre
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:postgre
-    postgres_password: "{{ lookup('env', 'POSTGRES_PASSWORD') }}"
+    postgres_password: "<your-postgres-password>"
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
