@@ -3,7 +3,7 @@
   become: true
   vars:
     aws_region: us-east-1
-    ecr_registry: 435373225546.dkr.ecr.us-east-1.amazonaws.com
+    ecr_registry: ecr_registry: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com
   tasks:
     - name: update all packages
       ansible.builtin.yum:
@@ -84,7 +84,7 @@
   become: true
   vars:
     container_name: oliver_postgre
-    image_name: 435373225546.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:postgre
+    image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:postgre
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
@@ -105,7 +105,7 @@
         ports:
           - "5432:5432"
         env:
-          POSTGRES_PASSWORD: "Pp123456789"
+          POSTGRES_PASSWORD: "{{ postgres_password }}"
         volumes:
           - /db-data:/var/lib/postgresql/data
 
@@ -114,7 +114,7 @@
   become: true
   vars:
     container_name: oliver_nodejs
-    image_name: 435373225546.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:nodejs
+    image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:nodejs
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
@@ -140,7 +140,7 @@
   become: true
   vars:
     container_name: oliver_react
-    image_name: 435373225546.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:react
+    image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:react
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
