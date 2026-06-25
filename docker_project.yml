@@ -83,7 +83,7 @@
   hosts: _ansible_postgresql
   become: true
   vars:
-    container_name: oliver_postgre
+    container_name: todo_postgre
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:postgre
     postgres_password: "<your-postgres-password>"
   tasks:
@@ -114,7 +114,7 @@
   hosts: _ansible_nodejs
   become: true
   vars:
-    container_name: oliver_nodejs
+    container_name: todo_nodejs
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:nodejs
   tasks:
     - name: remove postgre container
@@ -140,7 +140,7 @@
   hosts: _ansible_react
   become: true
   vars:
-    container_name: oliver_react
+    container_name: todo_react
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:react
   tasks:
     - name: remove postgre container
