@@ -85,6 +85,7 @@
   vars:
     container_name: oliver_postgre
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:postgre
+    postgres_password: "{{ lookup('env', 'POSTGRES_PASSWORD') }}"
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
