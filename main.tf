@@ -21,7 +21,7 @@ variable "tags" {
 }
 
 variable "user" {
-  default = "clarusway"
+  default = "devops-user"
 }
 
 resource "aws_instance" "managed_nodes" {
@@ -89,6 +89,6 @@ output "node_public_ip" {
   value = aws_instance.managed_nodes[1].public_ip
 }
 
-output "postgre_private_ip" {
+output "postgres_private_ip" {
   value = aws_instance.managed_nodes[0].private_ip
 }
