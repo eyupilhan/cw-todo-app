@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "hector-jenkins-project-backend"
-    key = "backend/tf-backend-jenkins.tfstate"
+    bucket = "your-terraform-backend-bucket"
+    key = "backend/cw-todo-app.tfstate"
     region = "us-east-1"
   }
 }
@@ -28,9 +28,9 @@ resource "aws_instance" "managed_nodes" {
   ami = "ami-016eb5d644c333ccb"
   count = 3
   instance_type = "t2.micro"
-  key_name = "Maymuncuk"  # change with your pem file
+  key_name = "your-key-pair-name"
   vpc_security_group_ids = [aws_security_group.tf-sec-gr.id]
-  iam_instance_profile = "jenkins-project-profile-${var.user}" # we created this with jenkins server
+  iam_instance_profile = "your-iam-instance-profile"
   tags = {
     Name = "ansible_${element(var.tags, count.index )}"
     stack = "ansible_project"
