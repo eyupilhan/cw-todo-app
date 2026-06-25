@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project demonstrates a complete CI/CD pipeline for deploying a multi-container Todo application on AWS using Jenkins, Terraform, Ansible, Docker, and Amazon ECR.
+This project demonstrates an end-to-end **CI/CD pipeline** for deploying a multi-container Todo application on AWS.
+
+The system is fully automated using **Terraform, Jenkins, Ansible, Docker, and Amazon ECR**, covering infrastructure provisioning, application deployment, and container orchestration.
 
 The application consists of three services:
 
@@ -10,22 +12,19 @@ The application consists of three services:
 * Node.js Backend
 * PostgreSQL Database
 
-Infrastructure provisioning, application deployment, and container management are fully automated using Infrastructure as Code (IaC) and configuration management tools.
-
 ---
 
 ## Architecture
 
-* AWS EC2
-* Terraform
-* Jenkins
-* Ansible
-* Docker
-* Amazon ECR
-* PostgreSQL
-* Node.js
-* React
-* Git & GitHub
+This project follows a fully automated DevOps workflow:
+
+* AWS EC2 (Infrastructure)
+* Terraform (Infrastructure as Code)
+* Jenkins (CI/CD Orchestration)
+* Ansible (Configuration Management)
+* Docker (Containerization)
+* Amazon ECR (Container Registry)
+* GitHub (Source Control)
 
 ---
 
@@ -48,21 +47,7 @@ Infrastructure provisioning, application deployment, and container management ar
 
 ---
 
-## Features
-
-* Infrastructure provisioning with Terraform
-* Jenkins Pipeline for CI/CD automation
-* Dynamic Ansible inventory
-* Docker image creation
-* Amazon ECR integration
-* Automated deployment with Ansible
-* Multi-container application architecture
-* Environment variable templating
-* Infrastructure as Code (IaC)
-
----
-
-## Deployment Workflow
+## CI/CD Workflow
 
 ```text
 Developer Push
@@ -71,59 +56,55 @@ Developer Push
 GitHub Repository
       │
       ▼
-Jenkins Pipeline
+Jenkins Pipeline Trigger
       │
       ▼
-Terraform Provisioning
+Terraform Infrastructure Provisioning
       │
       ▼
 Docker Image Build
       │
       ▼
-Amazon ECR
+Push to Amazon ECR
       │
       ▼
 Ansible Deployment
       │
       ▼
-React + Node.js + PostgreSQL
+Multi-Container Application Running on AWS
 ```
 
 ---
 
-## Technologies Used
+## Key Features
 
-* AWS EC2
-* Terraform
-* Jenkins
-* Ansible
-* Docker
-* Amazon ECR
-* PostgreSQL
-* Node.js
-* React
-* Linux
-* Git & GitHub
+* Fully automated CI/CD pipeline
+* Infrastructure provisioning with Terraform
+* Dynamic Ansible inventory management
+* Docker-based microservices architecture
+* Secure container registry with Amazon ECR
+* Multi-tier application deployment
+* Environment-based configuration templates
+* End-to-end automation from commit to deployment
 
 ---
 
 ## Learning Outcomes
 
-Through this project, I gained practical experience with:
+This project demonstrates practical experience in:
 
-* Designing end-to-end CI/CD pipelines
-* Provisioning AWS infrastructure using Terraform
-* Deploying applications with Ansible
-* Building and managing Docker images
-* Using Amazon ECR as a container registry
-* Managing multi-container applications
-* Automating deployments with Jenkins
-* Dynamic inventory management in Ansible
+* Designing production-grade CI/CD pipelines
+* Infrastructure provisioning with Terraform (IaC)
+* Container orchestration with Docker
+* Automated deployment using Ansible
+* Jenkins pipeline orchestration
+* AWS cloud infrastructure management
+* Multi-service application architecture
 
 ---
 
 ## Notes
 
-This project was completed as part of my DevOps training and demonstrates practical experience with modern DevOps tools and deployment workflows.
+This project is part of a DevOps learning portfolio and focuses on real-world CI/CD and cloud deployment practices.
 
-It is intended for learning and portfolio purposes.
+It is not intended for production use without additional enhancements such as monitoring, scaling, and security hardening.
