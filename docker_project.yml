@@ -117,18 +117,18 @@
     container_name: todo_nodejs
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:nodejs
   tasks:
-    - name: remove postgre container
+    - name: remove nodejs container
       community.docker.docker_container:
         name: "{{ container_name }}"
         state: absent
         force_kill: true
 
-    - name: remove postgre image
+    - name: remove nodejs image
       community.docker.docker_image:
         name: "{{ image_name }}"
         state: absent
 
-    - name: Launch postgresql docker container
+    - name: Launch nodejs docker container
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ image_name }}"
@@ -143,13 +143,13 @@
     container_name: todo_react
     image_name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/<ecr-repository-name>/cw-todo-app:react
   tasks:
-    - name: remove postgre container
+    - name: remove react container
       community.docker.docker_container:
         name: "{{ container_name }}"
         state: absent
         force_kill: true
 
-    - name: remove postgre image
+    - name: remove react image
       community.docker.docker_image:
         name: "{{ image_name }}"
         state: absent
