@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "your-terraform-backend-bucket"
-    key = "backend/cw-todo-app.tfstate"
+    key    = "backend/cw-todo-app.tfstate"
     region = "us-east-1"
   }
 }
@@ -25,18 +25,18 @@ variable "user" {
 }
 
 resource "aws_instance" "managed_nodes" {
-  ami = "ami-016eb5d644c333ccb"
-  count = 3
-  instance_type = "t2.micro"
-  key_name = "your-key-pair-name"
+  ami                    = "ami-016eb5d644c333ccb"
+  count                  = 3
+  instance_type          = "t2.micro"
+  key_name               = "your-key-pair-name"
   vpc_security_group_ids = [aws_security_group.tf-sec-gr.id]
-  iam_instance_profile = "your-iam-instance-profile"
+  iam_instance_profile   = "your-iam-instance-profile"
   tags = {
-    Name = "ansible_${element(var.tags, count.index )}"
-    stack = "ansible_project"
+    Name        = "ansible_${element(var.tags, count.index)}"
+    stack       = "ansible_project"
     environment = "development"
   }
-    user_data = <<-EOF
+  user_data = <<-EOF
               #! /bin/bash
               dnf update -y
               EOF
