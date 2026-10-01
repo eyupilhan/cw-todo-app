@@ -93,7 +93,7 @@ Multi-Container Application Running on AWS
 
 This project demonstrates practical experience in:
 
-* Designing production-grade CI/CD pipelines
+* Implementing CI/CD pipelines using Jenkins, Docker, Ansible, and AWS
 * Infrastructure provisioning with Terraform (IaC)
 * Container orchestration with Docker
 * Automated deployment using Ansible
